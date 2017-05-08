@@ -1,0 +1,55 @@
+baseurl = "https://tabeth.gitlab.io" # Controls base URL
+languageCode = "en-US" # Controls site language
+title = "tabeth" # Homepage title and page title suffix
+paginate = 11 # Number of posts to show before paginating
+
+theme = "after-dark" # Set default theme
+
+enableRobotsTXT = true # Suggested, enable robots.txt file
+googleAnalytics = "" # Optional, add tracking Id for analytics
+disqusShortname = "" # Optional, add Disqus shortname for comments
+SectionPagesMenu = "main" # Enable menu system for lazy bloggers
+footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
+
+[params]
+  description = "" # Suggested, controls default description meta
+  author = "tabeth nkangoh" # Optional, controls author name display on posts
+  hide_author = true # Optional, set true to hide author name on posts
+  show_menu = true # Optional, set true to enable section menu
+  powered_by = false # Optional, set false to disable credits
+  related_content_limit = 3
+  images = [
+    "https://source.unsplash.com/category/technology/1600x900"
+  ] # Suggested, controls default Open Graph images
+  theme_variant = "standard" # Optional, for use to overriding default theme
+
+
+[[menu.main]]
+  name = "home"
+  weight = 1
+  identifier = "home"
+  url = "/"
+
+[[menu.main]]
+  name = "book reviews"
+  weight = 2
+  identifier = "book"
+  url = "/book/"
+
+[[menu.main]]
+  name = "poems"
+  weight = 3
+  identifier = "poem"
+  url = "/poem/"
+
+[[menu.main]]
+  name = "thoughts"
+  weight = 4
+  identifier = "post"
+  url = "/post/"
+
+[[menu.main]]
+  name = "about"
+  weight = 5
+  identifier = "about"
+  url = "/about/"
