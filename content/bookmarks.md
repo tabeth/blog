@@ -14,3 +14,4 @@ tolerance](https://codahale.com/you-cant-sacrifice-partition-tolerance/)
 tools
 ----
 [slate - api documentation](https://github.com/lord/slate)
+[Do not use Hadoop when your data is not big] https://news.ycombinator.com/item?id=14401399
