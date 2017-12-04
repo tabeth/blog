@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
+  <meta name="description" content="{{ description }}">
+
+  <style>
+    .bg-color {
+      background-color: {{{ lookup colors type }}}
+    }
+
+    .b--color {
+      border-color: {{{ lookup colors type }}}
+    }
+  </style>
+</head>
+
+<body>
+
+{{> nav }}
+
+<article>
+  <header class="bg-color sans-serif">
+    <div class="mw9 center pa4 pt5-ns ph7-l">
+      <time class="f6 mb2 dib ttu tracked"><small>{{this.date}}</small></time>
+      <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
+        <span class="bg-black-90 lh-copy white pa1 tracked-tight">
+          {{this.title}}
+        </span>
+      </h3>
+      <h4 class="f3 fw1 georgia i"></h4>
+    </div>
+  </header>
+
+  <div class="pa4 ph7-l georgia mw9-l center">
+    {{{ contents }}}
+  </div>
+</article>
+</body>
+</html>
