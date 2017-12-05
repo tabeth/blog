@@ -1,5 +1,8 @@
 ---
-layout: ed.html
+layout: post.html
+type: ed
 draft: false
 title: test
 ---
+
+blah

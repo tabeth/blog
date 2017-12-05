@@ -5,43 +5,69 @@
   <title>test</title>
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
   <meta name="description" content="Education, tech, and sometimes both simultaneously.">
+
+  <style>
+    .bg-color {
+      background-color: #801638
+    }
+
+    .b--color {
+      border-color: #801638
+    }
+  </style>
 </head>
 
 <body>
 
-  <header class="sans-serif bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-    <nav class="f6 fw6 ttu tracked">
+<header class="sans-serif bg-black-90 w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
+  <nav class="f6 fw6 ttu tracked">
+    <div class="dib">
       <a class="link dim white dib mr3" href="/" title="home">tabeth</a>
-      <a class="link dim white dib mr3" href="/tech" title="tech">tech</a>
-      <a class="link dim white dib mr3" href="/ed" title="education">ed</a>
-      <a class="link dim white dib mr3" href="/other" title="other">other</a>
-      <a class="link dim white dib mr3" href="/reviews" title="reviews">reviews</a>
-      <a class="link dim white dib mr3" href="/projects" title="projects">projects</a>
+      <div class="h1 bg-white"></div>
+    </div>
+        <div class="dib">
+          <a class="link dim white dib mr3" href="/tech" title="tech">tech</a>
+          <div class="h1" style="background-color: #c22326"></div>
+        </div>
+        <div class="dib">
+          <a class="link dim white dib mr3" href="/ed" title="ed">ed</a>
+          <div class="h1" style="background-color: #f37338"></div>
+        </div>
+        <div class="dib">
+          <a class="link dim white dib mr3" href="/other" title="other">other</a>
+          <div class="h1" style="background-color: #027878"></div>
+        </div>
+        <div class="dib">
+          <a class="link dim white dib mr3" href="/reviews" title="reviews">reviews</a>
+          <div class="h1" style="background-color: #fdb632"></div>
+        </div>
+        <div class="dib">
+          <a class="link dim white dib mr3" href="/projects" title="projects">projects</a>
+          <div class="h1" style="background-color: #801638"></div>
+        </div>
+    <div class="dib">
       <a class="link dim white dib mr3" href="/about" title="about">about</a>
-    </nav>
+      <div class="h1 bg-white"></div>
+    </div>
+  </nav>
+</header>
+
+<article>
+  <header class="bg-color sans-serif">
+    <div class="mw9 center pa4 pt5-ns ph7-l">
+      <time class="f6 mb2 dib ttu tracked"><small></small></time>
+      <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
+        <span class="bg-black-90 lh-copy white pa1 tracked-tight">
+          test
+        </span>
+      </h3>
+      <h4 class="f3 fw1 georgia i"></h4>
+    </div>
   </header>
 
-  <section class="sans-serif pa2 pa4-ns">
-    <article class="bg-white pa4 center">
-      <ul class="list f3 pl0 mt3 mb0">
-        <li class="tracked-tight pv2 bl2 mb3">
-            <a href="projects/test" class="db link underline-hover black lh-title mw6">
-              <span class="fw7 underline-hover">test</span>
-            </a>
-            <span style="background-color: " class="white f4 tracked-tight">
-              12-04-2017
-            </span>
-          </li>
-        <li class="tracked-tight pv2 bl2 mb3">
-            <a href="projects/template" class="db link underline-hover black lh-title mw6">
-              <span class="fw7 underline-hover"></span>
-            </a>
-            <span style="background-color: " class="white f4 tracked-tight">
-              12-04-2017
-            </span>
-          </li>
-      </ul>
-    </article>
-  </section>
+  <div class="pa4 ph7-l georgia mw9-l center">
+    <p class='f5 f4-ns lh-copy measure mb4'>blah</p>
+  </div>
+</article>
 </body>
 </html>

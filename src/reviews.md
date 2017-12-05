@@ -1,3 +1,4 @@
 ---
-layout: reviews.html
+layout: posts.html
+type: reviews
 ---

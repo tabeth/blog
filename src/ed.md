@@ -1,3 +1,4 @@
 ---
-layout: ed.html
+layout: posts.html
+type: ed
 ---

@@ -1,3 +1,4 @@
 ---
-layout: other.html
+layout: posts.html
+type: other
 ---

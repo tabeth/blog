@@ -1,4 +1,5 @@
 ---
-layout: projects.html
+layout: post.html
+type: projects
 draft: true
 ---

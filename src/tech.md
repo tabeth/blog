@@ -1,3 +1,4 @@
 ---
-layout: tech.html
+layout: posts.html
+type: tech
 ---

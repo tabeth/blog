@@ -1,3 +1,4 @@
 ---
-layout: projects.html
+layout: posts.html
+type: projects
 ---

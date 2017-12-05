@@ -1,4 +1,5 @@
 ---
-layout: tech.html
+layout: post.html
+type: tech
 draft: true
 ---

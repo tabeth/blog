@@ -15,6 +15,10 @@ handlebars.registerHelper('formatDate', function(date, format) {
   return moment(date).format(format);
 });
 
+handlebars.registerHelper('notEqual', function(a, b, options) {
+  return a !== b ? options.fn(this) : options.inverse(this);
+});
+
 Metalsmith(__dirname)
   .metadata({
     title: "tabeth",
@@ -23,7 +27,7 @@ Metalsmith(__dirname)
     url: "http://www.tabeth.com",
     colors: {
       tech: '#c22326',
-      education: '#f37338',
+      ed: '#f37338',
       other: '#027878',
       reviews: '#fdb632',
       projects: '#801638'
@@ -33,17 +37,17 @@ Metalsmith(__dirname)
   .source('./src')
   .destination('./build')
   .clean(false)
+  .use(drafts())
   .use(collections({
     posts: {
       sortBy: 'date',
       reverse: true,
       limit: 50,
-      pattern: '*.md'
     },
     tech: {
       sortBy: 'date',
       reverse: true,
-      pattern: '${source}/tech/*.md'
+      pattern: 'tech/*.md'
     },
     ed: {
       sortBy: 'date',
@@ -91,7 +95,6 @@ Metalsmith(__dirname)
 
   }))
   .use(permalinks())
-  .use(drafts())
   .use(layouts({
     engine: 'handlebars',
     directory: './layouts',

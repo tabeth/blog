@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
+  <meta name="description" content="{{ description }}">
+</head>
+
+<body>
+
+  {{> nav }}
+
+  <section class="sans-serif pa2 pa4-ns">
+    <article class="bg-white pa4 center">
+      <ul class="list f3 pl0 mt3 mb0">
+        {{#each (lookup collections type)}}
+        <li class="tracked-tight pv2 bl2 mb3">
+            <a href="/{{path}}" class="db link underline-hover black lh-title mw6">
+              <span class="fw7 underline-hover">{{this.title}}</span>
+            </a>
+            <span style="background-color: {{{lookup ../colors type}}}" class="white f4 tracked-tight">
+              {{formatDate date "MM-DD-YYYY"}}
+            </span>
+          </li>
+        {{/each}}
+      </ul>
+    </article>
+  </section>
+</body>
+</html>
