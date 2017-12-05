@@ -1,9 +1,9 @@
 ---
 title: the signal and the noise
 type: reviews
-collection: posts
 date: 2017-05-07
 layout: post.html
+collection: posts
 ---
 
 I just finished reading Nate Silver’s the Signal and the Noise and it makes very interesting points

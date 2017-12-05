@@ -11,15 +11,17 @@
 
   {{> nav }}
 
-  <section class="pa2 pa4-ns">
-    <article class="ba b--black-10 br2 bg-white pa4 mw6 center">
-      <ul class="list f6 pl0 mt3 mb0">
+  <section class="sans-serif pa2 pa4-ns">
+    <article class="bg-white pa4 center">
+      <ul class="list f3 pl0 mt3 mb0">
         {{#each posts}}
-          <li class="pv2 bl2">
-            <a href="{{this.path}}" class="link lh-title">
+        <li class="tracked-tight pv2 bl2 mb3">
+            <a href="{{this.path}}" class="db link underline-hover black lh-title mw6">
               <span class="fw7 underline-hover">{{this.title}}</span>
-              <span class="db black-60">{{this.date}}</span>
             </a>
+            <span style="background-color: {{{lookup ../colors type}}}" class="white f4 tracked-tight">
+              {{formatDate date "MM-DD-YYYY"}}
+            </span>
           </li>
         {{/each}}
       </ul>

@@ -9,17 +9,12 @@
 
 <body>
 
-  <header class="bg-black-90 fixed w-100 ph3 pv3 pv4-ns ph4-m ph5-l">
-    <nav class="f6 fw6 ttu tracked">
-      <a class="link dim white dib mr3" href="{{ url }}" title="home">{{ title }}</a>
-      <a class="link dim white dib mr3" href="#" title="tech">tech</a>
-      <a class="link dim white dib" href="#" title="education">ed</a>
-      <a class="link dim white dib" href="#" title="other">other</a>
-      <a class="link dim white dib" href="#" title="projects">projects</a>
-      <a class="link dim white dib" href="#" title="about">about</a>
-    </nav>
-  </header>
+  {{> nav }}
 
-  {{{ contents }}}
+  <article class="pa3 pa5-ns">
+    <h1 class="serif f3 f1-m f-headline-l">Hello!</h1>
+    {{{ contents }}}
+  </article>
+
 </body>
 </html>

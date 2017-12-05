@@ -1,9 +1,9 @@
 ---
-title: deliverying happiness
+title: delivering happiness
 type: reviews
-collection: posts
 date: 2017-05-07
 layout: post.html
+collection: posts
 ---
 
 I have a huge amount of respect for Tony Hsieh. In his book, Delivering Happiness, he explained, very

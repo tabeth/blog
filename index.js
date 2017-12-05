@@ -4,9 +4,16 @@ var marked      = require("marked");
 var layouts     = require("metalsmith-layouts");
 var permalinks  = require("metalsmith-permalinks");
 var collections = require("metalsmith-collections");
-var serve       = require('metalsmith-serve');
-var watch       = require('metalsmith-watch');
-var drafts      = require('metalsmith-drafts');
+var serve       = require("metalsmith-serve");
+var watch       = require("metalsmith-watch");
+var drafts      = require("metalsmith-drafts");
+var dateFormat  = require("metalsmith-date-formatter");
+var handlebars  = require("handlebars");
+var moment      = require("moment");
+
+handlebars.registerHelper('formatDate', function(date, format) {
+  return moment(date).format(format);
+});
 
 Metalsmith(__dirname)
   .metadata({
@@ -22,9 +29,43 @@ Metalsmith(__dirname)
       projects: '#801638'
     }
   })
+  .use(dateFormat({ dates: 'date' }))
   .source('./src')
   .destination('./build')
   .clean(false)
+  .use(collections({
+    posts: {
+      sortBy: 'date',
+      reverse: true,
+      limit: 50,
+      pattern: '*.md'
+    },
+    tech: {
+      sortBy: 'date',
+      reverse: true,
+      pattern: '${source}/tech/*.md'
+    },
+    ed: {
+      sortBy: 'date',
+      reverse: true,
+      pattern: 'ed/*.md'
+    },
+    other: {
+      sortBy: 'date',
+      reverse: true,
+      pattern: 'other/*.md'
+    },
+    reviews: {
+      sortBy: 'date',
+      reverse: true,
+      pattern: 'reviews/*.md',
+    },
+    projects: {
+      sortBy: 'date',
+      reverse: true,
+      pattern: 'projects/*.md'
+    },
+  }))
   .use(markdown({
     "renderer": () => {
       var renderer = new marked.Renderer({
@@ -49,14 +90,8 @@ Metalsmith(__dirname)
     }()
 
   }))
-  .use(drafts())
-  .use(collections({
-    posts: {
-      sortBy: 'date',
-      reverse: true
-    }
-  }))
   .use(permalinks())
+  .use(drafts())
   .use(layouts({
     engine: 'handlebars',
     directory: './layouts',
@@ -71,6 +106,7 @@ Metalsmith(__dirname)
     verbose: true
   }))
   .use(watch({
+    livereload: true,
     paths: {
       "${source}/**/*": true,
       "layout/**/*": "**/*",
