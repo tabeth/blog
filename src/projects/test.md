@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post.njk
 type: projects
 draft: false
 title: test

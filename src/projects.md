@@ -1,4 +1,4 @@
 ---
-layout: posts.html
+layout: posts.njk
 type: projects
 ---

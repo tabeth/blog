@@ -3,7 +3,7 @@ title: Dataclysm
 type: reviews
 date: 2017-05-07
 headline: data driven dating
-layout: post.html
+layout: post.njk
 ---
 
 Christian Rudder’s Dataclysm gives us an eerie peek at the vast amounts of 

@@ -2,7 +2,7 @@
 title: delivering happiness
 type: reviews
 date: 2017-05-07
-layout: post.html
+layout: post.njk
 collection: posts
 ---
 

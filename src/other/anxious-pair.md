@@ -1,6 +1,6 @@
 ---
 title: anxious pair
-layout: post.html
+layout: post.njk
 type: other
 description: the relation between you and your heart
 ---

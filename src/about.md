@@ -1,5 +1,5 @@
 ---
-layout: about.html
+layout: about.njk
 ---
 
 I'm Tabeth. I like education and technology. You'll probably see me talk about

@@ -69,6 +69,7 @@ Metalsmith(__dirname)
   .destination('./build')
   .clean(false)
   .use(drafts())
+  .use(inPlace(templateConfig))
   .use(collections({
     posts: {
       sortBy: 'date',
@@ -104,13 +105,8 @@ Metalsmith(__dirname)
   }))
   .use(permalinks())
   .use(layouts({
-    engine: 'handlebars',
-    directory: './layouts',
-    default: 'layout.html',
-    pattern: ["*/*/*html", "*/*html", "*html"],
-    partials: {
-      nav: 'partials/nav'
-    }
+    engine: "nunjucks",
+    directory: "./layouts"
   }))
   .use(serve({
     port: 8000,

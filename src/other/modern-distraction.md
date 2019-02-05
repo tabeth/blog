@@ -1,6 +1,6 @@
 ---
 title: modern distraction
-layout: post.html
+layout: post.njk
 description: the distracting blue sun
 type: other
 ---

@@ -1,16 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
-  <meta name="description" content="{{ description }}">
-</head>
+{% extends "./layouts/base.njk" %}
 
-<body>
-
-  {% include "./partials/nav.njk" %}
-
+{% block body %}
   <section class="sans-serif pa2 pa4-ns">
     <article class="ba bw3 b--black bg-white pa4 center">
       <ul class="list f3 pl0 mt3 mb0">
@@ -27,5 +17,4 @@
       </ul>
     </article>
   </section>
-</body>
-</html>
+{% endblock %}

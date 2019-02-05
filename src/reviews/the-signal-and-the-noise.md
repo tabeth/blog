@@ -2,7 +2,7 @@
 title: the signal and the noise
 type: reviews
 date: 2017-05-07
-layout: post.html
+layout: post.njk
 ---
 
 I just finished reading Nate Silver’s the Signal and the Noise and it makes very interesting points

@@ -1,5 +1,5 @@
 ---
-layout: post.html
+layout: post.njk
 type: tech
 draft: false
 title: test
