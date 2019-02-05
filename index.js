@@ -1,6 +1,4 @@
 var Metalsmith  = require("metalsmith");
-var markdown    = require("metalsmith-markdown");
-var marked      = require("marked");
 var layouts     = require("metalsmith-layouts");
 var permalinks  = require("metalsmith-permalinks");
 var collections = require("metalsmith-collections");
@@ -10,6 +8,11 @@ var drafts      = require("metalsmith-drafts");
 var dateFormat  = require("metalsmith-date-formatter");
 var handlebars  = require("handlebars");
 var moment      = require("moment");
+var assets      = require("metalsmith-static");
+var inPlace     = require("metalsmith-in-place");
+var marked      = require("marked");
+var _           = require("lodash");
+var rootPath    = require('metalsmith-rootpath')
 
 handlebars.registerHelper('formatDate', function(date, format) {
   return moment(date).format(format);
@@ -19,6 +22,34 @@ handlebars.registerHelper('notEqual', function(a, b, options) {
   return a !== b ? options.fn(this) : options.inverse(this);
 });
 
+var templateConfig = {
+  engineOptions: {
+    root: "./",
+    filters: {
+    },
+    extensions: {
+    },
+    globals: {
+      marked: function() {
+        var myMarked = marked;
+        // Read file from rendered file for each layout;
+        var renderedFilename = this.ctx.filename.replace(/\.(\w+)/, ".js");
+        var myRendered = marked.Rendered;
+
+        try {
+          myRendered = require(renderedFilename);
+          myRendered = _.assign(new marked.Renderer(), myRendered);
+          myMarked.setOptions({
+            renderer: myRendered
+          })
+        } catch(e) {
+        }
+
+        return myMarked;
+      }
+    }
+  }
+}
 Metalsmith(__dirname)
   .metadata({
     title: "tabeth",
@@ -42,6 +73,7 @@ Metalsmith(__dirname)
     posts: {
       sortBy: 'date',
       reverse: true,
+      pattern: ['**/*.md', '!about.md', '!ed.md', '!index.md', '!other.md', '!projects.md', '!reviews.md', '!tech.md'],
       limit: 50,
     },
     tech: {
@@ -70,30 +102,6 @@ Metalsmith(__dirname)
       pattern: 'projects/*.md'
     },
   }))
-  .use(markdown({
-    "renderer": () => {
-      var renderer = new marked.Renderer({
-        "smartypants": true,
-        "smartLists": true,
-        "gm": true,
-        "tables": true,
-        "breaks": false,
-        "stanitize": false
-      });
-
-      renderer.blockquote = function(text) {
-        return `<blockquote class='f6 f5-ns i pl4 bl bw1 b--color mb4'>${text}</blockquote>`;
-      };
-
-      renderer.paragraph = function(text) {
-        return `<p class='f5 f4-ns lh-copy measure mb4'>${text}</p>`
-      }
-
-      return renderer;
-
-    }()
-
-  }))
   .use(permalinks())
   .use(layouts({
     engine: 'handlebars',
@@ -115,7 +123,6 @@ Metalsmith(__dirname)
       "layout/**/*": "**/*",
     }
   }))
-
   .build(function(err, files) {
     if (err) { throw err; }
   });
