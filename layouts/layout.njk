@@ -9,12 +9,8 @@
 
 <body>
 
-  {{> nav }}
+  {% include "./partials/nav.njk" %}
 
-  <article class="pa3 pa5-ns">
-    <h1 class="serif f3 f1-m f-headline-l">Hello!</h1>
-    {{{ contents }}}
-  </article>
-
+  {{{ contents }}}
 </body>
 </html>

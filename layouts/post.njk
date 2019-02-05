@@ -19,7 +19,7 @@
 
 <body>
 
-{{> nav }}
+{% include "./partials/nav.njk" %}
 
 <article>
   <header class="bg-color sans-serif">
@@ -35,7 +35,7 @@
   </header>
 
   <div class="pa4 ph7-l georgia mw9-l center">
-    {{{ contents }}}
+    {{ marked()(contents) | safe }}
   </div>
 </article>
 </body>
