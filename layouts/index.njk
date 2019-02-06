@@ -1,7 +1,7 @@
 {% extends "./layouts/base.njk" %}
 
 {% block body %}
-  <section class="sans-serif pa2 pa4-ns">
+  <section class="sans-serif pa4 ph7-l mw9-l center">
     <article class="ba bw3 b--black bg-white pa4 center">
       <ul class="list f3 pl0 mt3 mb0">
         {% for post in posts %}
@@ -9,8 +9,8 @@
             <a href="{{ post.path }}" class="db link underline-hover black lh-title mw6">
               <span class="fw7 underline-hover">{{ post.title }}</span>
             </a>
-            <span style="background-color: {{{lookup ../colors type}}}" class="white f4 tracked-tight">
-              {{formatDate date "MM-DD-YYYY"}}
+            <span style="background-color: {{ colors | get(post.type) }}" class="white f4 tracked-tight">
+              {{ post.date | formatDate("MM-DD-YYYY") }}
             </span>
           </li>
         {% endfor %}

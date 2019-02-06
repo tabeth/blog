@@ -1,20 +1,7 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
-  <meta name="description" content="{{ description }}">
-</head>
-
-<body>
-
-  {% include "./partials/nav.njk" %}
-
+{% extends "./layouts/base.njk" %}
+{% block body %}
   <article class="pa3 pa5-ns">
     <h1 class="serif f3 f1-m f-headline-l">Hello!</h1>
-    {{ contents | safe }}
+    {{ marked()(contents) | safe }}
   </article>
-
-</body>
-</html>
+{% endblock %}

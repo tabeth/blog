@@ -4,16 +4,16 @@
   <section class="sans-serif pa2 pa4-ns">
     <article class="ba bw3 b--black bg-white pa4 center">
       <ul class="list f3 pl0 mt3 mb0">
-        {{#each (lookup collections type)}}
+        {% for post in collections[type] %}
         <li class="tracked-tight pv2 bl2 mb3">
-            <a href="/{{path}}" class="db link underline-hover black lh-title mw6">
-              <span class="fw7 underline-hover">{{this.title}}</span>
+            <a href="/{{ post.path }}" class="db link underline-hover black lh-title mw6">
+              <span class="fw7 underline-hover">{{ post.title }}</span>
             </a>
-            <span style="background-color: {{{lookup ../colors type}}}" class="white f4 tracked-tight">
-              {{formatDate date "MM-DD-YYYY"}}
+            <span style="background-color: {{ colors[type] }}" class="white f4 tracked-tight">
+              {{ post.date | formatDate("MM-DD-YYYY") }}
             </span>
           </li>
-        {{/each}}
+        {% endfor %}
       </ul>
     </article>
   </section>

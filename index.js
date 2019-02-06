@@ -6,7 +6,6 @@ var serve       = require("metalsmith-serve");
 var watch       = require("metalsmith-watch");
 var drafts      = require("metalsmith-drafts");
 var dateFormat  = require("metalsmith-date-formatter");
-var handlebars  = require("handlebars");
 var moment      = require("moment");
 var assets      = require("metalsmith-static");
 var inPlace     = require("metalsmith-in-place");
@@ -14,18 +13,22 @@ var marked      = require("marked");
 var _           = require("lodash");
 var rootPath    = require('metalsmith-rootpath')
 
-handlebars.registerHelper('formatDate', function(date, format) {
-  return moment(date).format(format);
-});
-
-handlebars.registerHelper('notEqual', function(a, b, options) {
-  return a !== b ? options.fn(this) : options.inverse(this);
-});
-
 var templateConfig = {
   engineOptions: {
     root: "./",
     filters: {
+      formatDate: function(date, format) {
+        return moment(date).format(format);
+      },
+      notEqual: function(a, b, options) {
+        return a !== b ? options.fn(this) : options.inverse(this);
+      },
+      get: function(object, key) {
+        return object[key]
+      },
+      keys: function(object) {
+        return Object.keys(object)
+      }
     },
     extensions: {
     },
@@ -69,40 +72,41 @@ Metalsmith(__dirname)
   .destination('./build')
   .clean(false)
   .use(drafts())
-  .use(inPlace(templateConfig))
   .use(collections({
     posts: {
       sortBy: 'date',
       reverse: true,
-      pattern: ['**/*.md', '!about.md', '!ed.md', '!index.md', '!other.md', '!projects.md', '!reviews.md', '!tech.md'],
+      pattern: ['**/*.njk', '!about.njk', '!ed.njk', '!index.njk', '!other.njk', '!projects.njk', '!reviews.njk', '!tech.njk'],
       limit: 50,
     },
     tech: {
       sortBy: 'date',
       reverse: true,
-      pattern: 'tech/*.md'
+      pattern: 'tech/*.njk'
     },
     ed: {
       sortBy: 'date',
       reverse: true,
-      pattern: 'ed/*.md'
+      pattern: 'ed/*.njk'
     },
     other: {
       sortBy: 'date',
       reverse: true,
-      pattern: 'other/*.md'
+      pattern: 'other/*.njk'
     },
     reviews: {
       sortBy: 'date',
       reverse: true,
-      pattern: 'reviews/*.md',
+      pattern: 'reviews/*.njk',
     },
     projects: {
       sortBy: 'date',
       reverse: true,
-      pattern: 'projects/*.md'
+      pattern: 'projects/*.njk'
     },
   }))
+
+  .use(inPlace(templateConfig))
   .use(permalinks())
   .use(layouts({
     engine: "nunjucks",

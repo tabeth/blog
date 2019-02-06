@@ -1,33 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css"/>
-  <meta name="description" content="{{ description }}">
-
+{% extends "./layouts/base.njk" %}
+{% block body %}
   <style>
-    .bg-color {
-      background-color: {{{ lookup colors type }}}
-    }
+.bg-color {
+  background-color: {{ colors | get(type) }}
+}
 
-    .b--color {
-      border-color: {{{ lookup colors type }}}
-    }
+.b--color {
+  background-color: {{ colors | get(type) }}
+}
   </style>
-</head>
-
-<body>
-
-{% include "./partials/nav.njk" %}
 
 <article>
   <header class="bg-color sans-serif">
     <div class="mw9 center pa4 pt5-ns ph7-l">
-      <time class="f6 mb2 dib ttu tracked"><small>{{this.date}}</small></time>
+      <time class="f6 mb2 dib ttu tracked"><small>{{ date }}</small></time>
       <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
         <span class="bg-black-90 lh-copy white pa1 tracked-tight">
-          {{this.title}}
+          {{ title }}
         </span>
       </h3>
       <h4 class="f3 fw1 georgia i"></h4>
@@ -38,5 +27,4 @@
     {{ marked()(contents) | safe }}
   </div>
 </article>
-</body>
-</html>
+{% endblock %}
