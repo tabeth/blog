@@ -7,11 +7,11 @@ var watch       = require("metalsmith-watch");
 var drafts      = require("metalsmith-drafts");
 var dateFormat  = require("metalsmith-date-formatter");
 var moment      = require("moment");
-var assets      = require("metalsmith-static");
 var inPlace     = require("metalsmith-in-place");
 var marked      = require("marked");
 var _           = require("lodash");
 var rootPath    = require('metalsmith-rootpath')
+var when        = require('metalsmith-if');
 
 var templateConfig = {
   engineOptions: {
@@ -53,6 +53,7 @@ var templateConfig = {
     }
   }
 }
+
 Metalsmith(__dirname)
   .metadata({
     title: "tabeth",
@@ -112,17 +113,21 @@ Metalsmith(__dirname)
     engine: "nunjucks",
     directory: "./layouts"
   }))
-  .use(serve({
-    port: 8000,
-    verbose: true
-  }))
-  .use(watch({
-    livereload: true,
-    paths: {
-      "${source}/**/*": true,
-      "layout/**/*": "**/*",
-    }
-  }))
+  .use(when(!process.env.PRODUCTION_BLOG,
+    serve({
+      port: 8000,
+      verbose: true
+    })
+  ))
+  .use(when(!process.env.PRODUCTION_BLOG,
+    watch({
+      livereload: !process.env.PRODUCTION_BLOG,
+      paths: {
+        "${source}/**/*": true,
+        "layout/**/*": "**/*",
+      }
+    })
+  ))
   .build(function(err, files) {
     if (err) { throw err; }
   });

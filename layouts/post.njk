@@ -27,4 +27,28 @@
     {{ marked()(contents) | safe }}
   </div>
 </article>
+
+<div class="w-100 ba bw1 b--color"></div>
+<div id="show_comments" onclick="javascript: (function(e) {
+  document.getElementById('show_comments').innerHTML = '';
+  document.getElementById('disqus_thread').classList.remove('dn');
+  })()" class="tc sans-serif pointer link ttu black b f3 lh-copy pa1 tracked-tight">
+  Show comments
+</div>
+
+<div page-title="{{title}}" page-path="{{path}}" id="disqus_thread" class="dn mw9 center pa4 pt5-ns ph7-l"></div>
+<script>
+var disqus_config = function () {
+  var thread = document.getElementById("disqus_thread");
+  this.page.url = thread.getAttribute("page-title");
+  this.page.identifier = thread.getAttribute("page-path");
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+  var d = document, s = d.createElement('script');
+  s.src = 'https://tabeth-com.disqus.com/embed.js';
+  s.setAttribute('data-timestamp', +new Date());
+  (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endblock %}
