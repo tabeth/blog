@@ -9,9 +9,11 @@
             <a href="/{{ post.path }}" class="db link underline-hover black lh-title mw6">
               <span class="fw7 underline-hover">{{ post.title }}</span>
             </a>
-            <span style="background-color: {{ colors[type] }}" class="white f4 tracked-tight">
-              {{ post.date | formatDate("MM-DD-YYYY") }}
-            </span>
+            {% if post.date %}
+              <span style="background-color: {{ colors[type] }}" class="white f4 tracked-tight">
+                {{ post.date | formatDate("MM-DD-YYYY") }}
+              </span>
+            {% endif %}
           </li>
         {% endfor %}
       </ul>

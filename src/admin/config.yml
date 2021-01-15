@@ -1,0 +1,83 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+site_url: https://tabeth.netlify.app
+
+media_folder: "images/uploads"
+
+collections:
+  - name: "ed"
+    label: "Education"
+    folder: "src/ed"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "njk"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "other"
+    label: "Other"
+    folder: "src/other"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "njk"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Headline", name: "headlin", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "reviews"
+    label: "Reviews"
+    folder: "src/reviews"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "njk"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Headline", name: "headlin", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "projects"
+    label: "Projects"
+    folder: "src/projects"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "njk"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Headline", name: "headlin", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "tech"
+    label: "Tech"
+    folder: "src/tech"
+    create: true
+    slug: "{{slug}}"
+    format: "frontmatter"
+    extension: "njk"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Headline", name: "headlin", widget: "string"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Body", name: "body", widget: "markdown"}

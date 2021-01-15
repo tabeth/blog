@@ -18,7 +18,7 @@ var templateConfig = {
     root: "./",
     filters: {
       formatDate: function(date, format) {
-        return moment(date).format(format);
+          return moment(date).format(format);
       },
       notEqual: function(a, b, options) {
         return a !== b ? options.fn(this) : options.inverse(this);
@@ -71,7 +71,7 @@ Metalsmith(__dirname)
   .use(dateFormat({ dates: 'date' }))
   .source('./src')
   .destination('./build')
-  .clean(false)
+  .clean(true)
   .use(drafts())
   .use(collections({
     posts: {
