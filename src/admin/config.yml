@@ -17,8 +17,8 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
-      - {label: "Type", name: "type", widget: "hidden", "default": "ed"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post"}
+      - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
 
@@ -31,7 +31,7 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "hidden", "default": "other"}
+      - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
@@ -46,7 +46,7 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "hidden", "default": "reviews"}
+      - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
@@ -61,7 +61,7 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "hidden", "default": "projects"}
+      - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
@@ -76,8 +76,8 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "hidden"}
-      - {label: "Publish Date", name: "date", widget: "datetime", "default": "tech"}
+      - {label: "Type", name: "type", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
       - {label: "Body", name: "body", widget: "markdown"}
