@@ -11,7 +11,7 @@
             </a>
             {% if post.date %}
               <span style="background-color: {{ colors[type] }}" class="white f4 tracked-tight">
-                {{ post.date | formatDate("MM-DD-YYYY") }}
+                {{ post.date | formatDate }}
               </span>
             {% endif %}
           </li>

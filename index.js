@@ -5,8 +5,6 @@ var collections = require("metalsmith-collections");
 var serve       = require("metalsmith-serve");
 var watch       = require("metalsmith-watch");
 var drafts      = require("metalsmith-drafts");
-var dateFormat  = require("metalsmith-date-formatter");
-var moment      = require("moment");
 var inPlace     = require("metalsmith-in-place");
 var marked      = require("marked");
 var _           = require("lodash");
@@ -17,8 +15,8 @@ var templateConfig = {
   engineOptions: {
     root: "./",
     filters: {
-      formatDate: function(date, format) {
-          return moment(date).format(format);
+      formatDate: function(date) {
+        return new Date(date).toLocaleDateString();
       },
       notEqual: function(a, b, options) {
         return a !== b ? options.fn(this) : options.inverse(this);
@@ -68,7 +66,6 @@ Metalsmith(__dirname)
       projects: '#801638'
     }
   })
-  .use(dateFormat({ dates: 'date' }))
   .source('./src')
   .destination('./build')
   .clean(true)
