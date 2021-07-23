@@ -1,7 +1,7 @@
 ---
 title: "can acceptance testing replace unit testing? an exercise in playwright
   and istanbuljs. "
-date: 2021-07-23T20:34:31.010Z
+date: 2021-07-23T21:24:32.927Z
 headlin: test
 layout: post.njk
 ---
@@ -19,5 +19,14 @@ function addTwoStrings(a: string, b: string): number {
 
 You take a quick look at this and determine that the string to number conversion is error-prone and so you wrap the entire thing into a `try`/`catch`, commit the code and call it a day.
 
-The next morning the test passes as expected, but when you actually use the application you notice that there are situations where you don't see any results in the actual graphical interface. You lament the fact that the unit test you wrote doesn't detect this situation. 
+The next morning the test passes as expected, but when you actually use the application you notice that there are situations where you don't see any results in the actual graphical interface. You lament the fact that the unit test you wrote doesn't detect this situation.
+
+# Enter acceptance tests
+The scenario above is hardly uncommon. Usually the solution to do this is to test the end-to-end, meaning you test all of the functionality together. In our case, that means testing the actual site with the deployed add two string code. 
+
+A popular tool for web automation in order to facilitate actually testing the code on the browser is [Selenium](https://www.selenium.dev/). Personally I use [Intern](https://theintern.io/) as it supports both functional (end-to-end) tests and unit tests. However, lately I've been more and more disillusioned with unit tests broadly and want to move solely to acceptance testing. 
+
+# The problem.
+
+ 
 
