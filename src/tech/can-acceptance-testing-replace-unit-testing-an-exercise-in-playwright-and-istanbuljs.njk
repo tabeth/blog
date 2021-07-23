@@ -1,7 +1,7 @@
 ---
 title: "can acceptance testing replace unit testing? an exercise in playwright
   and istanbuljs. "
-date: 2021-07-23T21:24:32.927Z
+date: 2019-01-17T22:24:32.927Z
 headlin: test
 layout: post.njk
 ---
@@ -27,6 +27,13 @@ The scenario above is hardly uncommon. Usually the solution to do this is to tes
 A popular tool for web automation in order to facilitate actually testing the code on the browser is [Selenium](https://www.selenium.dev/). Personally I use [Intern](https://theintern.io/) as it supports both functional (end-to-end) tests and unit tests. However, lately I've been more and more disillusioned with unit tests broadly and want to move solely to acceptance testing. 
 
 # The problem.
+Acceptance tests are slow. Really slow. See the following chart for an example
 
- 
+| Testing Type | Speed (ms) |
+|--------------|------------|
+| QUnit(simple)| 1-5        |
+| QUnit        | 100-200    |
+| Playwright   | 700 - 1000 |
+
+ As you can see (and feel free to run this on your local machine) there are stark differences between simplifying your code to be unit test friendly, checking the DOM un a QUnit test and finally, spinning up a headless browser and testing the application in an end-to-end fashion. There's a lot of override involved in the latter which results in some of the large differences present. 
 
