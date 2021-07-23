@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "lodash": "^4.17.11",
-    "marked": "^0.6.0",
+    "marked": "^0.7.0",
     "metalsmith-rootpath": "^1.0.4",
     "nunjucks-markdown": "^2.0.1"
   }
