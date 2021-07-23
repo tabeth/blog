@@ -17,7 +17,7 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post"}
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
@@ -34,7 +34,7 @@ collections:
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "reviews"
@@ -49,7 +49,7 @@ collections:
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "projects"
@@ -64,7 +64,7 @@ collections:
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "tech"
@@ -79,5 +79,5 @@ collections:
       - {label: "Type", name: "type", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Headline", name: "headlin", widget: "string"}
-      - {label: "Layout", name: "layout", widget: "hidden", "default": "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
       - {label: "Body", name: "body", widget: "markdown"}
