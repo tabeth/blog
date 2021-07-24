@@ -1,5 +1,5 @@
 ---
-title: acceptance vs. unit testing
+title: Why acceptance testing might be more practical than unit testing.
 date: 2019-01-17T22:24:32.927Z
 headlin: test
 layout: post.njk
@@ -35,4 +35,22 @@ Acceptance tests are slow. Really slow. See the following chart for an example
 | Playwright   | 700 - 1000 |
 
  As you can see (and feel free to run this on your local machine) there are stark differences between simplifying your code to be unit test friendly, checking the DOM un a QUnit test and finally, spinning up a headless browser and testing the application in an end-to-end fashion. There's a lot of override involved in the latter which results in some of the large differences present. 
+
+# The benefits
+Despite acceptance testing being an order of magnitude or more slower than a simple unit test that doesn't interface with the DOM, I still prefer it for two reasons:
+
+## Simplicity in testing
+Using something like Playwright or Intern's functional tests, it's relatively straightforward to test your application. With GUI tools like the [Headless Recorder](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda) writing the actual tests is becoming as easy as simply using your application normally. With that I believe you're able to drastically speed up writing tests. 
+
+
+
+## More comprehensive
+The nature of an acceptance test is that you must load up your entire stack in order to test the functionality. This means databases, and other services must be up (or mocked, but preferably you'd have testing versions of everything) so you test not only your application but its dependencies in tandem. 
+
+## Code coverage is provides a map
+This is a strange one, but the best thing for me about acceptance testing is that if your code is properly instrumented, your code coverage is very accurate and provides great visibility to which types of paths in your application are untouched by your tests. 
+
+In addition to giving your more visibility to which tests need to be written, it also helps tell you what kind of use cases might not traditionally be touched while using your code, which is always good to know. 
+
+
 
