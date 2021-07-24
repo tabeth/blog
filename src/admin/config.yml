@@ -5,7 +5,7 @@ backend:
 publish_mode: editorial_workflow
 site_url: https://tabeth.netlify.app
 
-media_folder: "images/uploads"
+media_folder: "static/images/uploads"
 
 collections:
   - name: "ed"
