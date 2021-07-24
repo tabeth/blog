@@ -5,11 +5,13 @@ headlin: test
 layout: post.njk
 ---
 # The ambition
+
 It was a late afternoon - you're ready to go home, but you think "let me just run these tests and then I'll head out." As the slog of unit tests compiles and finally runs to completion you see that some are failing. Now annoyed, you decide to just fix the test before you actually leave. 
 
 The failing test seems innocent enough. You maintain a website and on the website, you allow the user to specify two numbers as strings and they are then converted into JavaScript numbers and ultimately are added together.
 
 The implementation you happen to have is something more or less like the following:
+
 ```typescript
 function addTwoStrings(a: string, b: string): number {
    return Number(a) + Number(b);
@@ -21,36 +23,41 @@ You take a quick look at this and determine that the string to number conversion
 The next morning the test passes as expected, but when you actually use the application you notice that there are situations where you don't see any results in the actual graphical interface. You lament the fact that the unit test you wrote doesn't detect this situation.
 
 # Enter acceptance tests
+
 The scenario above is hardly uncommon. Usually the solution to do this is to test the end-to-end, meaning you test all of the functionality together. In our case, that means testing the actual site with the deployed add two string code. 
 
 A popular tool for web automation in order to facilitate actually testing the code on the browser is [Selenium](https://www.selenium.dev/). Personally I use [Intern](https://theintern.io/) as it supports both functional (end-to-end) tests and unit tests. However, lately I've been more and more disillusioned with unit tests broadly and want to move solely to acceptance testing. 
 
 # The problem.
+
 Acceptance tests are slow. Really slow. See the following chart for an example
 
-| Testing Type | Speed (ms) |
-|--------------|------------|
-| QUnit(simple)| 1-5        |
-| QUnit        | 100-200    |
-| Playwright   | 700 - 1000 |
+| Testing Type  | Speed (ms) |
+| ------------- | ---------- |
+| QUnit(simple) | 1-5        |
+| QUnit         | 100-200    |
+| Playwright    | 700 - 1000 |
 
  As you can see (and feel free to run this on your local machine) there are stark differences between simplifying your code to be unit test friendly, checking the DOM un a QUnit test and finally, spinning up a headless browser and testing the application in an end-to-end fashion. There's a lot of override involved in the latter which results in some of the large differences present. 
 
 # The benefits
+
 Despite acceptance testing being an order of magnitude or more slower than a simple unit test that doesn't interface with the DOM, I still prefer it for two reasons:
 
 ## Simplicity in testing
+
 Using something like Playwright or Intern's functional tests, it's relatively straightforward to test your application. With GUI tools like the [Headless Recorder](https://chrome.google.com/webstore/detail/headless-recorder/djeegiggegleadkkbgopoonhjimgehda) writing the actual tests is becoming as easy as simply using your application normally. With that I believe you're able to drastically speed up writing tests. 
 
-
-
 ## More comprehensive
+
 The nature of an acceptance test is that you must load up your entire stack in order to test the functionality. This means databases, and other services must be up (or mocked, but preferably you'd have testing versions of everything) so you test not only your application but its dependencies in tandem. 
 
 ## Code coverage is provides a map
+
+![](images/uploads/adder-test-code-coverage.png "Code Coverage Example")
+
+
+
 This is a strange one, but the best thing for me about acceptance testing is that if your code is properly instrumented, your code coverage is very accurate and provides great visibility to which types of paths in your application are untouched by your tests. 
 
-In addition to giving your more visibility to which tests need to be written, it also helps tell you what kind of use cases might not traditionally be touched while using your code, which is always good to know. 
-
-
-
+In addition to giving your more visibility to which tests need to be written, it also helps tell you what kind of use cases might not traditionally be touched while using your code, which is always good to know.
