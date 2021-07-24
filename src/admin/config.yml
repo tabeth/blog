@@ -76,7 +76,7 @@ collections:
     extension: "njk"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Type", name: "type", widget: "hidden"}
+      - {label: "Type", name: "type", widget: "hidden", "default": "tech"}
       - {label: "Publish Date", name: "date", widget: "datetime", "default": "tech"}
       - {label: "Headline", name: "headline", widget: "string"}
       - {label: "Layout", name: "layout", widget: "hidden", "default": "post.njk"}
