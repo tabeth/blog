@@ -3,7 +3,7 @@ backend:
   branch: master
 
 publish_mode: editorial_workflow
-site_url: https://tabeth.netlify.app
+site_url: https://tabeth.com
 
 media_folder: "static/images/uploads"
 
